@@ -1,1 +1,25 @@
+Q: What is Object Oriented Programming ?
 
+Ans: Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which are instances of classes. It is a way of programming that organizes code around "objects," which are like real-world things. These objects can have properties (data) and actions (methods). OOP makes it easier to build complex programs by breaking them into smaller, reusable pieces.
+
+
+Q: Is java a pure object-oriented programming language ?
+
+Ans: No, Java is not considered a pure object-oriented programming language. While Java is heavily object-oriented, it includes some features that are not fully aligned with pure object-oriented principles.
+For example:
+
+Primitive Data Types: Java uses primitive data types (like int, char, double, etc.) that are not objects. In a pure object-oriented language, everything is treated as an object, including numbers and basic data types.
+Static Methods and Variables: Java allows the use of static methods and variables, which belong to the class rather than to instances (objects). In a purely object-oriented language, everything should be accessed through objects.
+
+
+Q: Principles of OOP ?
+
+Ans: The four key principles of OOP are:
+
+Encapsulation
+Abstraction
+Inheritance
+Polymorphism
+
+
+Q: 
