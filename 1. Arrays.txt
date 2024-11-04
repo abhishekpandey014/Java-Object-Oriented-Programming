@@ -171,3 +171,144 @@ Only stores homogeneous data types
 Not flexible (no dynamic resizing)
 Lack of built-in support for complex operations
 
+
+
+
+
+
+Introduction to 2D Arrays :
+
+suppose you want to store a set of test scores for a group of students across multiple subjects. You could use a 2D array where:
+
+Each row represents a different student.
+Each column represents a different subject.
+
+
+Declaring a 2D Array
+int[][] scores = new int[3][4];
+
+int[][] indicates a 2D array of integers.
+scores is the name of our array.
+new int[3][4] creates a 3x4 grid, with 3 rows and 4 columns.
+
+We can initialize a 2D array when we declare it,
+
+int[][] scores = {
+    {85, 90, 78, 92}, // Scores for student 1
+    {88, 76, 93, 85}, // Scores for student 2
+    {91, 82, 89, 77}  // Scores for student 3
+};
+
+This means:
+
+scores[0][0] is 85 (first student, first subject).
+scores[2][3] is 77 (third student, fourth subject).
+
+
+Accessing Elements in a 2D Array :
+
+To access or modify an element, 
+int score = scores[1][2];  // Gets the score of the second student in the third subject
+System.out.println("Score: " + score);
+
+Or, to update a value:
+scores[0][1] = 95; // Changes the score of the first student in the second subject to 95
+
+
+Using Loops to Print the 2D Array
+for (int i = 0; i < scores.length; i++) {        // Iterates over rows
+    for (int j = 0; j < scores[i].length; j++) { // Iterates over columns
+        System.out.print(scores[i][j] + " ");
+    }
+    System.out.println(); // Moves to the next line after each row
+}
+
+
+Full Example Program :
+
+public class Main {
+    public static void main(String[] args) {
+        int[][] scores = {
+            {85, 90, 78, 92},
+            {88, 76, 93, 85},
+            {91, 82, 89, 77}
+        };
+
+        // Printing the 2D array
+        for (int i = 0; i < scores.length; i++) {
+            for (int j = 0; j < scores[i].length; j++) {
+                System.out.print(scores[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+Output
+85 90 78 92
+88 76 93 85
+91 82 89 77
+
+
+Program to Take Input for a 2D Array Using Scanner:
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Define the number of students and subjects
+        int students = 3;
+        int subjects = 4;
+        
+        // Declare a 2D array to store scores
+        int[][] scores = new int[students][subjects];
+
+        // Input scores from the user
+        for (int i = 0; i < students; i++) {
+            System.out.println("Enter scores for student " + (i + 1) + ":");
+            for (int j = 0; j < subjects; j++) {
+                System.out.print("Score for subject " + (j + 1) + ": ");
+                scores[i][j] = scanner.nextInt(); // Read score
+            }
+        }
+
+        // Print the scores
+        System.out.println("\nScores entered:");
+        for (int i = 0; i < students; i++) {
+            for (int j = 0; j < subjects; j++) {
+                System.out.print(scores[i][j] + " ");
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+    }
+}
+
+
+Example Output
+
+Enter scores for student 1:
+Score for subject 1: 85
+Score for subject 2: 90
+Score for subject 3: 78
+Score for subject 4: 92
+Enter scores for student 2:
+Score for subject 1: 88
+Score for subject 2: 76
+Score for subject 3: 93
+Score for subject 4: 85
+Enter scores for student 3:
+Score for subject 1: 91
+Score for subject 2: 82
+Score for subject 3: 89
+Score for subject 4: 77
+
+Scores entered:
+85 90 78 92 
+88 76 93 85 
+91 82 89 77 
+
