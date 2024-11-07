@@ -312,3 +312,101 @@ Scores entered:
 88 76 93 85 
 91 82 89 77 
 
+
+
+
+
+1. Linear Search
+Concept: Imagine you have a list of items (like a phonebook) and want to find a specific item. In a linear search, you go through each item one by one until you find the target item.
+
+Example: Let's say you have a list of numbers [5, 8, 3, 12, 7], and you’re looking for 12. Using linear search:
+
+Start from the first number, 5, check if it's 12 (it’s not).
+Move to the next, 8, check if it's 12 (it’s not).
+Keep going until you reach 12.
+
+
+Code Example in Java:
+
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] numbers = {5, 8, 3, 12, 7};
+        int target = 12;
+        int index = -1; // Initialize index to -1 to indicate "not found"
+
+        // Perform the linear search within the main method
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == target) { // Check each element
+                index = i; // Store the index if found
+                break; // Exit the loop as we've found the target
+            }
+        }
+
+        // Display the result
+        if (index != -1) {
+            System.out.println("Found at index: " + index);
+        } else {
+            System.out.println("Not found.");
+        }
+    }
+}
+
+Explanation
+We initialize index to -1 to represent "not found."
+We then perform the linear search directly in the main method using a for loop.
+If the target value is found, we store the index and use break to exit the loop.
+After the loop, we check if index is still -1. If so, it means the target was not found.
+
+
+
+
+
+2. Binary Search
+Concept: Binary search is faster but requires the list to be sorted. You repeatedly divide the search area in half until you find the target. Think of it like looking for a word in a dictionary: you open somewhere in the middle and then decide to search either to the left or the right based on alphabetical order.
+
+Example: Suppose you have a sorted list of numbers [3, 5, 7, 8, 12, 14, 18], and you’re looking for 12.
+
+Start in the middle (in this case, 8).
+Since 12 is larger than 8, ignore the left half and focus on the right.
+Repeat until you find 12.
+
+Code Example in Java:
+
+import java.util.Arrays;
+public class BinarySearch {
+    public static void main(String[] args) {
+        int[] numbers = {3, 5, 7, 8, 12, 14, 18};
+        int target = 12;
+        int left = 0;
+        int right = numbers.length - 1;
+        int index = -1; // Initialize index to -1 to indicate "not found"
+
+        // Perform the binary search directly in the main method
+        while (left <= right) {
+            int mid = left + (right - left) / 2; // Calculate middle index
+
+            if (numbers[mid] == target) {
+                index = mid; // Target found, store the index
+                break; // Exit the loop as we've found the target
+            }
+            if (numbers[mid] < target) {
+                left = mid + 1; // Ignore left half
+            } else {
+                right = mid - 1; // Ignore right half
+            }
+        }
+
+        // Display the result
+        if (index != -1) {
+            System.out.println("Found at index: " + index);
+        } else {
+            System.out.println("Not found.");
+        }
+    }
+}
+
+Explanation
+We define left and right pointers, and initialize index to -1 (to represent "not found").
+We use a while loop to perform the binary search directly within the main method.
+If the target is found, we store its index in index and break the loop.
+After the loop, we check if index is still -1. If it is, we print "Not found."
