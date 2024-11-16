@@ -1,0 +1,209 @@
+Encapsulation is one of the core principles of object-oriented programming (OOP). It is the process of bundling the data (fields) and the methods (functions) that operate on the data into a single unit, called a class, and restricting direct access to some of the object's components. This is achieved by using access modifiers such as private, protected, and public.
+
+Key Points About Encapsulation
+
+Data Hiding:
+The internal state of the object is hidden from the outside world, and access to it is restricted.
+Only specific methods (getters and setters) are exposed to access or modify the private fields.
+
+
+Control Over Data:
+You can control how the fields are accessed or modified by providing validation in getter and setter methods.
+
+
+Improved Maintainability:
+Changes to the implementation details of a class do not affect other parts of the program, as long as the public interface remains consistent.
+
+
+Increased Security:
+Sensitive data is protected from unauthorized access or modification
+
+
+Implementation of Encapsulation in Java
+Example: Encapsulation in Java
+
+public class Employee {
+    // Private fields: Data is hidden from direct access
+    private String name;
+    private int age;
+    private double salary;
+
+    // Public getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Public setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Public getter method for age
+    public int getAge() {
+        return age;
+    }
+
+    // Public setter method for age with validation
+    public void setAge(int age) {
+        if (age > 0) { // Age must be positive
+            this.age = age;
+        } else {
+            System.out.println("Invalid age!");
+        }
+    }
+
+    // Public getter method for salary
+    public double getSalary() {
+        return salary;
+    }
+
+    // Public setter method for salary
+    public void setSalary(double salary) {
+        if (salary > 0) { // Salary must be positive
+            this.salary = salary;
+        } else {
+            System.out.println("Invalid salary!");
+        }
+    }
+}
+
+
+Example Usage:
+
+public class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee();
+
+        // Set values using setter methods
+        emp.setName("Alice");
+        emp.setAge(30);
+        emp.setSalary(50000);
+
+        // Get values using getter methods
+        System.out.println("Name: " + emp.getName());
+        System.out.println("Age: " + emp.getAge());
+        System.out.println("Salary: " + emp.getSalary());
+
+        // Try setting invalid values
+        emp.setAge(-5);   // Invalid age!
+        emp.setSalary(-10000); // Invalid salary!
+    }
+}
+
+
+
+OUTPUT:
+Name: Alice
+Age: 30
+Salary: 50000.0
+Invalid age!
+Invalid salary!
+
+
+
+Advantages of Encapsulation
+Modularity: Classes can be easily maintained and updated.
+Abstraction: Hides unnecessary implementation details from the user.
+Data Protection: Prevents unauthorized access or accidental modification of fields.
+Reusability: Encapsulated code is more reusable and less prone to errors.
+
+
+Explanation of Access Specifiers
+
+public:
+Accessible everywhere in the program: within the same class, package, and from outside the package (including non-subclasses).
+
+protected:
+Accessible within the same class and package.
+Accessible outside the package only to subclasses (via inheritance).
+Not accessible to non-subclasses outside the package.
+
+default (no modifier):
+Accessible within the same class and package only.
+Not accessible outside the package, even in subclasses.
+
+private:
+Accessible only within the same class.
+Not accessible in the same package, subclasses, or outside the package.
+
++-----------------------+---------------+----------------+-----------------------------------+------------------+
+| Access Specifier      | within Class  | within Package | outside package by Subclass only  | outside package  |
++-----------------------+---------------+----------------+-----------------------------------+------------------+
+| public                |      ✅       |       ✅      |               ✅                 |        ✅        |
+| protected             |      ✅       |       ✅      |               ✅                 |        ✖️        |
+| default (no modifier) |      ✅       |       ✅      |               ✖️                 |        ✖️        |
+| private               |      ✅       |       ✖️      |               ✖️                 |        ✖️        |
++-----------------------+---------------+----------------+-----------------------------------+------------------+
+
+Key Takeaways:
+Use public when you want to make a member accessible to everyone.
+Use protected when you want to allow access in subclasses and within the package.
+Use default (no modifier) when access should be restricted to the package.
+Use private to restrict access strictly to the class itself.
+
+
+
+Scope of variables:
+
+
+Local Variables:
+
+Definition: Variables that are declared inside a method, constructor, or block of code.
+Scope: They are only accessible within the method, constructor, or block where they are declared.
+Lifetime: They exist only during the execution of the method or block, and are destroyed once the method finishes executing.
+
+Example:
+public void myMethod() {
+    int localVar = 5; // Local variable
+    System.out.println(localVar); // Accessible only inside myMethod
+}
+
+
+
+
+Argument (Parameter) Variables:
+
+Definition: Variables that are passed into a method or constructor.
+Scope: They are accessible only within the method or constructor in which they are defined.
+Lifetime: They exist for the duration of the method's execution.
+
+Example:
+public void printSum(int a, int b) { // 'a' and 'b' are argument variables
+    System.out.println(a + b); // Accessible only inside this method
+}
+
+
+
+
+Instance Variables:
+
+Definition: Variables that are declared within a class but outside any method, constructor, or block.
+Scope: They are accessible by all methods, constructors, and blocks in the class, and can be referenced using an object of the class.
+Lifetime: They exist as long as the object of the class exists.
+
+Example:
+public class MyClass {
+    int instanceVar; // Instance variable
+
+    public void setValue(int value) {
+        instanceVar = value; // Accessible within all methods
+    }
+}
+
+
+
+
+Class Variables (Static Variables):
+
+Definition: Variables that are declared with the static keyword inside a class.
+Scope: They are shared among all instances of the class and can be accessed using the class name or an object.
+Lifetime: They exist as long as the class is loaded into memory, even if no object of the class exists.
+
+Example:
+public class MyClass {
+    static int classVar; // Class (static) variable
+
+    public static void setClassVar(int value) {
+        classVar = value; // Accessible within static methods
+    }
+}
