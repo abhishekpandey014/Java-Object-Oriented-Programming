@@ -1,3 +1,26 @@
+String: A string is a sequence of characters. It is represented by the String class.
+Note: Strings in Java are objects and are immutable, meaning once a string is created, its content cannot be changed. If you perform any operation on a string, a new string object is created.
+
+Declaring Strings in Java
+You can create a string in two ways:
+
+Using String Literals:
+String str = "Hello, World!";
+
+
+Using the new Keyword:
+String str = new String("Hello, World!");
+
+
+Common String Operations:
+
+1. Concatenation:
+String s1 = "Hello";
+String s2 = "World";
+String result = s1 + " " + s2; // Hello World
+
+follow your book for the next of the operations below:
+
 String trim ()
 String to LowerCase()
 String to UpperCase()
@@ -18,18 +41,106 @@ boolean endsWith(String str)
 String valueOf(all types)
 
 
+Custom String Class with length() Method:
+public class MyString {
+    private char[] characters; // Array to store the characters of the string
+
+    // Constructor to initialize the MyString object
+    public MyString(String str) {
+        characters = str.toCharArray(); // Convert input string to a char array
+    }
+
+    // Method to calculate the length of the string
+    public int length() {
+        int count = 0; // Counter for the length
+        for (char c : characters) {
+            count++; // Increment count for each character
+        }
+        return count; // Return the total count
+    }
+
+    // Method to display the string
+    public String toString() {
+        return new String(characters); // Convert the char array back to a string
+    }
+
+    // Main method to test the class
+    public static void main(String[] args) {
+        MyString myStr = new MyString("Hello, World!");
+        System.out.println("String: " + myStr); // Output the string
+        System.out.println("Length: " + myStr.length()); // Output the length
+    }
+}
 
 
-There are many format specifiers we can use. Here are some common ones:
+OUTPUT:
+String: Hello, World!
+Length: 13
 
-%c - Character
-%d - Decimal number (base 10)
-%e - Exponential floating-point number
-%f - Floating-point number
-%i - Integer (base 10)
-%o - Octal number (base 8)
-%s - String
-%u - Unsigned decimal (integer) number
-%x - Hexadecimal number (base 16)
-%t - Date/time
-%n - Newline
+
+
+Declaring and Initializing a String Array:
+
+Declaration Without Initialization:
+String[] names; // Declares a String array
+
+Declaration With Initialization:
+
+Static Initialization:
+String[] names = {"Alice", "Bob", "Charlie"}; // Array with predefined values
+
+Dynamic Initialization:
+String[] names = new String[3]; // Array with size 3
+names[0] = "Alice";             // Assigning values
+names[1] = "Bob";
+names[2] = "Charlie";
+
+
+Accessing Elements in a String Array
+Elements in an array are accessed using their index (0-based):
+
+String[] names = {"Alice", "Bob", "Charlie"};
+System.out.println(names[0]); // Outputs: Alice
+System.out.println(names[1]); // Outputs: Bob
+
+
+
+Example Program: String Array
+
+import java.util.Arrays;
+
+public class StringArrayExample {
+    public static void main(String[] args) {
+        // Declare and initialize a String array
+        String[] fruits = {"Apple", "Banana", "Cherry", "Date"};
+
+        // Access elements
+        System.out.println("First fruit: " + fruits[0]);
+
+        // Iterate over the array
+        System.out.println("Fruits:");
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+
+        // Sort the array
+        Arrays.sort(fruits);
+        System.out.println("Sorted Fruits: " + Arrays.toString(fruits));
+
+        // Join elements into a single string
+        String joined = String.join(", ", fruits);
+        System.out.println("Joined Fruits: " + joined);
+    }
+}
+
+
+OUTPUT:
+
+First fruit: Apple
+Fruits:
+Apple
+Banana
+Cherry
+Date
+Sorted Fruits: [Apple, Banana, Cherry, Date]
+Joined Fruits: Apple, Banana, Cherry, Date
